@@ -16,7 +16,7 @@ SLOT="0"
 
 EGIT_REPO_URI="https://github.com/ED6E0F17/userland.git"
 EGIT_BRANCH="brillo"
-EGIT_COMMIT="5a6d2988f4d646cbb6c0b8cf37096291174a2119"
+EGIT_COMMIT="807cde9ae24f2ca2e3671569642ee1bfad0020e2"
 
 pkg_setup() {
 	append-ldflags $(no-as-needed)
