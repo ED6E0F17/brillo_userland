@@ -16,7 +16,7 @@ SLOT="0"
 
 EGIT_REPO_URI="https://github.com/ED6E0F17/userland.git"
 EGIT_BRANCH="brillo"
-EGIT_COMMIT="807cde9ae24f2ca2e3671569642ee1bfad0020e2"
+EGIT_COMMIT="477ddf1b6f4d998ca4cae9c0c851bc31fb7ba11c"
 
 pkg_setup() {
 	append-ldflags $(no-as-needed)
@@ -30,6 +30,7 @@ src_compile() {
 	${WORKDIR}/${P}/buildbrillo
 }
 
+# installs libs into /system/usr/lib - avoiding libGL* conflicts in /system/lib
 src_install() {
 	mkdir -p ${D}/bin
 	mkdir -p ${D}/lib
