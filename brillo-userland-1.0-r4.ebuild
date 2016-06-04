@@ -16,11 +16,7 @@ SLOT="0"
 
 EGIT_REPO_URI="https://github.com/ED6E0F17/userland.git"
 EGIT_BRANCH="brillo"
-EGIT_COMMIT="477ddf1b6f4d998ca4cae9c0c851bc31fb7ba11c"
-
-pkg_setup() {
-	append-ldflags $(no-as-needed)
-}
+EGIT_COMMIT="115c367ffa95e9500b15e569b1ba485a157b4d0f"
 
 src_prepare() {
 	tc-export CXX
