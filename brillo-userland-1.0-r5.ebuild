@@ -15,8 +15,7 @@ LICENSE="BSD"
 SLOT="0"
 
 EGIT_REPO_URI="https://github.com/ED6E0F17/userland.git"
-EGIT_BRANCH="brillo"
-EGIT_COMMIT="115c367ffa95e9500b15e569b1ba485a157b4d0f"
+EGIT_BRANCH="master"
 
 src_prepare() {
 	tc-export CXX
@@ -32,6 +31,6 @@ src_install() {
 	mkdir -p ${D}/lib
 	exeinto bin
 	doexe ${WORKDIR}/${P}/build/bin/*
-	dolib ${WORKDIR}/${P}/build/lib/*so
+	dolib ${WORKDIR}/${P}/build/lib/*so*
 }
 
