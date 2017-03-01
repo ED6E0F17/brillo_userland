@@ -3,8 +3,7 @@
 # $Id$
 
 EAPI=5
-
-inherit cmake-utils git-2
+inherit eutils git-r3
 
 DESCRIPTION="Raspberry Pi userspace tools and libraries"
 HOMEPAGE="https://github.com/raspberrypi/userland"
@@ -14,23 +13,18 @@ KEYWORDS="arm"
 LICENSE="BSD"
 SLOT="0"
 
-EGIT_REPO_URI="https://github.com/ED6E0F17/userland.git"
+EGIT_REPO_URI="git://github.com/ED6E0F17/userland.git"
 EGIT_BRANCH="master"
-
-src_prepare() {
-	tc-export CXX
-}
 
 src_compile() {
 	${WORKDIR}/${P}/buildbrillo
 }
 
-# installs libs into /system/usr/lib - avoiding libGL* conflicts in /system/lib
 src_install() {
-	mkdir -p ${D}/bin
 	mkdir -p ${D}/lib
+	mkdir -p ${D}/bin
 	exeinto bin
 	doexe ${WORKDIR}/${P}/build/bin/*
-	dolib ${WORKDIR}/${P}/build/lib/*so*
+	dolib ${WORKDIR}/${P}/build/lib/*so
 }
 
