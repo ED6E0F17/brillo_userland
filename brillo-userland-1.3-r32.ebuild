@@ -8,7 +8,7 @@ inherit eutils git-r3
 DESCRIPTION="Raspberry Pi userspace tools and libraries"
 HOMEPAGE="https://github.com/raspberrypi/userland"
 
-KEYWORDS="arm64"
+KEYWORDS="arm"
 
 LICENSE="BSD"
 SLOT="0"
@@ -17,15 +17,16 @@ EGIT_REPO_URI="git://github.com/ED6E0F17/userland.git"
 EGIT_BRANCH="master"
 
 src_compile() {
-	${WORKDIR}/${P}/buildbrillo64
+	${WORKDIR}/${P}/buildbrillo
 }
 
-# testing only - userland needs a 32bit userspace
 src_install() {
-	mkdir -p ${D}/bin
 	mkdir -p ${D}/lib
+	mkdir -p ${D}/bin
 	exeinto bin
-	doexe ${WORKDIR}/${P}/build/bin/*
-	dolib ${WORKDIR}/${P}/build/lib/*so
+	if [-d ${WORKDIR}/${P}/build/bin ]; then
+		doexe ${WORKDIR}/${P}/build/bin/*
+		dolib ${WORKDIR}/${P}/build/lib/*so
+	fi
 }
 
